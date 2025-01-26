@@ -1,0 +1,73 @@
+{
+  "name": "screen-recorder",
+  "displayName": "Screen Recorder",
+  "description": "Extensão para gravar a tela diretamente do VS Code",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:screen-recorder.start",
+    "onCommand:screen-recorder.stop",
+    "onView:screen-recorder.sidebar"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "screen-recorder",
+          "title": "Gravador de Tela",
+          "icon": "media/icon_resized.png"
+        }
+      ]
+    },
+    "views": {
+      "screen-recorder": [
+        {
+          "id": "screen-recorder.sidebar",
+          "name": "Controles de Gravação"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "screen-recorder.start",
+        "title": "Iniciar Gravação",
+        "category": "Gravador de Tela"
+      },
+      {
+        "command": "screen-recorder.stop",
+        "title": "Parar Gravação",
+        "category": "Gravador de Tela"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "electron": "^34.0.1",
+    "fluent-ffmpeg": "^2.1.3"
+  }
+}
