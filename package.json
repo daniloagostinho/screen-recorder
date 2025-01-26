@@ -1,8 +1,15 @@
 {
-  "name": "screen-recorder",
-  "displayName": "Screen Recorder",
+  "name": "code-screen-recorder",
+  "displayName": "Code Screen Recorder",
   "description": "Extensão para gravar a tela diretamente do VS Code",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "publisher": "DaniloAgostinho",
+  "author": "Danilo Agostino",
+  "license": "MIT",
+  "repository": {
+        "type": "git",
+        "url": "https://github.com/daniloagostinho/screen-recorder"
+    },
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -10,37 +17,37 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:screen-recorder.start",
-    "onCommand:screen-recorder.stop",
-    "onView:screen-recorder.sidebar"
+    "onCommand:code-screen-recorder.start",
+    "onCommand:code-screen-recorder.stop",
+    "onView:code-screen-recorder.sidebar"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "screen-recorder",
+          "id": "code-screen-recorder",
           "title": "Gravador de Tela",
           "icon": "media/icon_resized.png"
         }
       ]
     },
     "views": {
-      "screen-recorder": [
+      "code-screen-recorder": [
         {
-          "id": "screen-recorder.sidebar",
+          "id": "code-screen-recorder.sidebar",
           "name": "Controles de Gravação"
         }
       ]
     },
     "commands": [
       {
-        "command": "screen-recorder.start",
+        "command": "code-screen-recorder.start",
         "title": "Iniciar Gravação",
         "category": "Gravador de Tela"
       },
       {
-        "command": "screen-recorder.stop",
+        "command": "code-screen-recorder.stop",
         "title": "Parar Gravação",
         "category": "Gravador de Tela"
       }
@@ -52,7 +59,8 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",

@@ -44,7 +44,7 @@ Em breve disponível no Marketplace do VS Code. Por enquanto, instale manualment
 ```sh
 npm install -g vsce
 vsce package
-code --install-extension screen-recorder-0.0.1.vsix
+code --install-extension code-screen-recorder-0.0.1.vsix
 ```
 
 ---
@@ -101,8 +101,8 @@ Se encontrar outro problema, abra uma **issue** no repositório! 🛠️
 1. **Fork o repositório**
 2. Clone o projeto:  
    ```sh
-   git clone https://github.com/seu-usuario/screen-recorder.git
-   cd screen-recorder
+   git clone https://github.com/seu-usuario/code-screen-recorder.git
+   cd code-screen-recorder
    ```
 3. Instale dependências e compile:  
    ```sh
@@ -124,7 +124,7 @@ Caso encontre bugs ou tenha sugestões, abra uma **issue**! 🛠️
 ---
 
 ## **📢 Links Úteis**
-🔗 [Repositório no GitHub](https://github.com/seu-usuario/screen-recorder)  
+🔗 [Repositório no GitHub](https://github.com/seu-usuario/code-screen-recorder)  
 🔗 [FFmpeg Documentation](https://ffmpeg.org/documentation.html)  
 🔗 [VS Code API Docs](https://code.visualstudio.com/api)  
 

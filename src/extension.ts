@@ -7,7 +7,7 @@ let ffmpegProcess: ChildProcessWithoutNullStreams | null = null;
 
 export function activate(context: vscode.ExtensionContext) {
     // Registrar comandos para iniciar e parar a gravação
-    let startCommand = vscode.commands.registerCommand("screen-recorder.start", async () => {
+    let startCommand = vscode.commands.registerCommand("code-screen-recorder.start", async () => {
         const filePath = await vscode.window.showSaveDialog({
             defaultUri: vscode.Uri.file(path.join(os.homedir(), 'gravacao.mp4')),
             filters: { 'Vídeos': ['mp4'] }
@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
         startScreenRecording(filePath.fsPath);
     });
 
-    let stopCommand = vscode.commands.registerCommand("screen-recorder.stop", () => {
+    let stopCommand = vscode.commands.registerCommand("code-screen-recorder.stop", () => {
         stopScreenRecording();
     });
 
