@@ -130,3 +130,4 @@ Caso encontre bugs ou tenha sugestões, abra uma **issue**! 🛠️
 
 **🚀 Espero que essa extensão facilite sua gravação no VS Code!**
 
+
