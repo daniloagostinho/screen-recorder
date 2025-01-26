@@ -1,71 +1,132 @@
-# screen-recorder README
+# 🎥 Screen Recorder - VS Code Extension
 
-This is the README for your extension "screen-recorder". After writing up a brief description, we recommend including the following sections.
+Screen Recorder é uma **extensão Open Source para o VS Code** que permite **gravar a tela e o áudio** diretamente do editor, usando **FFmpeg**.
 
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+> ✅ **Grave sua tela enquanto codifica, ensina ou faz demonstrações!** 🚀
 
 ---
 
-## Following extension guidelines
+## **✨ Recursos**
+✔️ Grava a tela do sistema e o áudio simultaneamente.  
+✔️ Salva o vídeo no formato **MP4** com alta qualidade.  
+✔️ Comandos fáceis pelo **Command Palette** (`Ctrl+Shift+P`).  
+✔️ Opção para **abrir automaticamente a pasta do arquivo gravado**.  
+✔️ Suporte para **Linux e macOS** (com FFmpeg instalado).  
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+---
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+## **📥 Instalação**
+### **Pré-requisitos**
+Antes de instalar a extensão, certifique-se de que o **FFmpeg** está instalado no seu sistema:
 
-## Working with Markdown
+🔹 **Ubuntu/Debian**:
+```sh
+sudo apt install ffmpeg
+```
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+🔹 **Arch Linux**:
+```sh
+sudo pacman -S ffmpeg
+```
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+🔹 **Fedora**:
+```sh
+sudo dnf install ffmpeg
+```
 
-## For more information
+🔹 **macOS (Homebrew)**:
+```sh
+brew install ffmpeg
+```
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+### **Instalando a Extensão**
+Em breve disponível no Marketplace do VS Code. Por enquanto, instale manualmente:
+```sh
+npm install -g vsce
+vsce package
+code --install-extension screen-recorder-0.0.1.vsix
+```
 
-**Enjoy!**
+---
+
+## **🚀 Como Usar**
+
+### **1️⃣ Iniciar Gravação**
+1. Pressione `Ctrl+Shift+P` para abrir o **Command Palette**.
+2. Digite **`Iniciar Gravação`** e pressione **Enter**.
+3. Escolha o local para salvar o vídeo.
+4. A gravação iniciará imediatamente!
+
+### **2️⃣ Parar Gravação**
+1. Pressione `Ctrl+Shift+P` e selecione **`Parar Gravação`**.
+2. O vídeo será salvo automaticamente no local escolhido.
+3. Uma notificação permitirá abrir a pasta do arquivo gravado.
+
+### **⏩ Atalhos de Teclado**
+- 🟥 **Iniciar Gravação** → `Ctrl + Alt + R`
+- ⏹️ **Parar Gravação** → `Ctrl + Alt + S`
+
+---
+
+## **🛠️ Configurações Avançadas**
+Por padrão, a gravação usa:
+- 📺 **X11 para capturar a tela**
+- 🎙️ **PulseAudio para capturar áudio**
+- 🎞️ **MP4 (H.264) como formato de saída**
+
+Caso tenha problemas com áudio, verifique suas fontes com:
+```sh
+pactl list sources
+```
+E altere o código da extensão para usar a fonte correta.
+
+---
+
+## **🛠️ Problemas Conhecidos**
+1. **Erro `Cannot open display :0.0`**  
+   🔹 Execute `echo $DISPLAY`. Se retornar `:1`, ajuste o comando da gravação para `-i :1`.
+
+2. **Áudio não gravando no Linux**  
+   🔹 Use `pactl list sources` para encontrar o nome correto do dispositivo de entrada.
+
+3. **Arquivo salvo mas não abre**  
+   🔹 Instale o **VLC** (`sudo apt install vlc`) ou tente abrir com `ffplay output.mp4`.
+
+Se encontrar outro problema, abra uma **issue** no repositório! 🛠️
+
+---
+
+## **📝 Contribuindo**
+💡 **Pull Requests são bem-vindos!** Se quiser contribuir:
+1. **Fork o repositório**
+2. Clone o projeto:  
+   ```sh
+   git clone https://github.com/seu-usuario/screen-recorder.git
+   cd screen-recorder
+   ```
+3. Instale dependências e compile:  
+   ```sh
+   npm install
+   npm run compile
+   ```
+4. Teste no VS Code:  
+   ```sh
+   code --extensionDevelopmentPath=.
+   ```
+
+Caso encontre bugs ou tenha sugestões, abra uma **issue**! 🛠️
+
+---
+
+## **📌 Licença**
+📜 Este projeto é **Open Source** sob a licença **MIT**. Sinta-se livre para usar e modificar!
+
+---
+
+## **📢 Links Úteis**
+🔗 [Repositório no GitHub](https://github.com/seu-usuario/screen-recorder)  
+🔗 [FFmpeg Documentation](https://ffmpeg.org/documentation.html)  
+🔗 [VS Code API Docs](https://code.visualstudio.com/api)  
+
+**🚀 Espero que essa extensão facilite sua gravação no VS Code!**
+
